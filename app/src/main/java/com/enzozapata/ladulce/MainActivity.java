@@ -52,8 +52,6 @@ public class MainActivity extends AppCompatActivity {
         if (AccessToken.getCurrentAccessToken() == null) {
             goLoginScreen();
         } else {
-            String at = AccessToken.getCurrentAccessToken().getToken();
-            apiLogin(at);
             AndroidNetworking.get("http://ladulce.enzozapata.com/wp-json/wp/v2/posts?_embed")
                     .setPriority(Priority.MEDIUM)
                     .setTag("Posts")
@@ -68,16 +66,18 @@ public class MainActivity extends AppCompatActivity {
                                 try {
                                     wppost = response.getJSONObject(i);
                                     JSONObject titulo = wppost.getJSONObject("title");
-                                    post.titulo = titulo.getString("rendered");
+                                    post.setTitulo(titulo.getString("rendered"));
+                                    post.setId(wppost.getString("id"));
                                 } catch (JSONException error){
                                     showResponse(error.toString());
                                 }
                                 try{
                                     ObjectMapper mapper = new ObjectMapper();
                                     JsonNode node = mapper.readTree(wppost.toString());
-                                    post.fecha_pub=node.findPath("date").asText();
-                                    post.icon=node.findPath("thumbnail").get("source_url").asText();
-                                    post.precio=node.findPath("precio_producto").asText();
+                                    post.setFecha_pub(node.findPath("date").asText());
+                                    post.setIcon(node.findPath("thumbnail").get("source_url").asText());
+                                    post.setIcon_full(node.findPath("full").get("source_url").asText());
+                                    post.setPrecio(node.findPath("precio_producto").asText());
                                 } catch (java.io.IOException exep){
                                     showResponse(exep.toString());
                                 }
@@ -93,24 +93,7 @@ public class MainActivity extends AppCompatActivity {
                     });
         }
     }
-    public void apiLogin(String at) {
-        AndroidNetworking.post("http://ladulce.enzozapata.com/web/index.php/login")
-                .addBodyParameter("at", at)
-                .setTag("Login")
-                .setPriority(Priority.MEDIUM)
-                .build()
-                .getAsJSONObject(new JSONObjectRequestListener() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                       showResponse(response.toString());
-                    }
-                    @Override
-                    public void onError(ANError error) {
-                        showResponse(error.toString());
-                    }
-                });
-    }
-    //asd
+
     public void showResponse(String response) {
         Toast toast = Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG);
         toast.show();

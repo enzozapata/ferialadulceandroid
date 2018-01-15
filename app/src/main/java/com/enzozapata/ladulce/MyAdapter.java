@@ -1,17 +1,24 @@
 package com.enzozapata.ladulce;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.enzozapata.ladulce.data.models.Posts;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import org.json.JSONObject;
 
 import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
@@ -50,8 +57,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
     public void ver(Context context, int position){
         Intent intent = new Intent(context, activity_post.class);
-        String message = values.get(position).titulo;
-        intent.putExtra(EXTRA_MESSAGE, message);
+        Posts post = values.get(position);
+        intent.putExtra("id",post.id);
+        intent.putExtra("icon_full", post.icon_full);
+        intent.putExtra("titulo",post.titulo);
+        intent.putExtra("precio",post.precio);
+        intent.putExtra("fecha_pub",post.fecha_pub);
         context.startActivity(intent);
     }
     // Provide a suitable constructor (depends on the kind of dataset)

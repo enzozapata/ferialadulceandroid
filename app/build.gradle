@@ -16,7 +16,7 @@ android {
             keyAlias 'EnzoZ'
             keyPassword 'asd111asd'
             storeFile file('C:\\Users\\Enzo Zapata\\Documents\\keygoo.jks')
-            storePassword '***REMOVED***'
+            storePassword 'asd111asd'
         }
     }
     buildTypes {

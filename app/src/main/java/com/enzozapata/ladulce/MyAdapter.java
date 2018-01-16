@@ -11,9 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.enzozapata.ladulce.data.models.Posts;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -32,8 +34,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         // each data item is just a string in this case
         public  TextView txtHeader;
         public TextView txtFooter;
-        public TextView txtPrecio;
-        public com.androidnetworking.widget.ANImageView imgView;
+        public org.fabiomsr.moneytextview.MoneyTextView txtPrecio;
+        public ImageView imgView;
         public View layout;
 
         public ViewHolder(View v) {
@@ -41,8 +43,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             layout = v;
             txtHeader = (TextView) v.findViewById(R.id.titulo);
             txtFooter = (TextView) v.findViewById(R.id.fecha_pub);
-            txtPrecio = (TextView) v.findViewById(R.id.precio);
-            imgView = (com.androidnetworking.widget.ANImageView) v.findViewById(R.id.icon);
+            txtPrecio = (org.fabiomsr.moneytextview.MoneyTextView) v.findViewById(R.id.precio);
+            imgView = (ImageView) v.findViewById(R.id.icon);
         }
     }
 
@@ -98,9 +100,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                 ver(context,position);
             }
         });
-        holder.imgView.setDefaultImageResId(R.mipmap.loading);
-        holder.imgView.setImageUrl(post.icon);
-        holder.txtPrecio.setText(post.precio);
+        Glide.with(context).load(post.icon).into(holder.imgView);
+        holder.txtPrecio.setAmount(Integer.parseInt(post.precio));
         holder.txtFooter.setText(post.fecha_pub);
     }
 

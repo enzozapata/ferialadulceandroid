@@ -14,8 +14,8 @@ android {
     signingConfigs {
         key {
             keyAlias 'EnzoZ'
-            keyPassword 'asd111asd'
-            storeFile file('C:\\Users\\Enzo Zapata\\Documents\\keygoo.jks')
+            keyPassword 'Isaiasariel.1'
+            storeFile file('//home//enzoz//Documentos//keygoo.jks')
             storePassword 'Isaiasariel.1'
         }
     }
@@ -43,4 +43,5 @@ dependencies {
     compile 'com.android.support:cardview-v7:27.0.2'
     implementation 'com.github.bumptech.glide:glide:4.5.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.5.0'
+    compile 'org.fabiomsr:moneytextview:1.1.0'
 }

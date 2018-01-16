@@ -9,9 +9,9 @@ public class MyApp extends Application {
 
     private String id_fb="1583201355107984";
     private String foto_perfil;
-    private String puesto;
-    private String rango;
-    private String nombre_apellido;
+    private String puesto="Puesto 1";
+    private String rango="Feriante";
+    private String nombre_apellido="Enzo Zapata";
     private String wpup;
     public String getId_fb() {
         return id_fb;

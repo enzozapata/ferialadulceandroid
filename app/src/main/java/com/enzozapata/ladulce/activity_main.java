@@ -75,6 +75,7 @@ public class activity_main extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         View hView =  navigationView.getHeaderView(0);
+        navigationView.getMenu().add(0,0, 0, "Probando menu.");
         imgView = (ImageView) hView.findViewById(R.id.imageView);
         MyApp app = ((MyApp) this.getApplication());
         id_fb = app.getId_fb();

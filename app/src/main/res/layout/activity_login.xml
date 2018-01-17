@@ -14,10 +14,11 @@
         android:layout_height="200dp"
         card_view:cardCornerRadius="2dp"
         android:padding="2dp">
+
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="fill_parent"
-            android:layout_height="160dp"
+            android:layout_height="match_parent"
             android:contentDescription="LOGO"
             android:paddingTop="0dp"
             app:srcCompat="@mipmap/ferialogo" />

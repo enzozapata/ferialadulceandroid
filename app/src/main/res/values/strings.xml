@@ -16,5 +16,6 @@
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_main">activity_main</string>
+    <string name="title_activity_new">activity_new</string>
 
 </resources>

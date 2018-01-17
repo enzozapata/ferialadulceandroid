@@ -14,9 +14,9 @@ android {
     signingConfigs {
         key {
             keyAlias 'EnzoZ'
-            keyPassword '***REMOVED***'
+            keyPassword 'xxx'
             storeFile file('//home//enzoz//Documentos//keygoo.jks')
-            storePassword '***REMOVED***'
+            storePassword 'xxx'
         }
     }
     buildTypes {

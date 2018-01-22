@@ -8,4 +8,20 @@
     tools:context="com.enzozapata.ladulce.activity_new"
     tools:showIn="@layout/app_bar_activity_new">
 
+    <ImageView
+        android:id="@+id/result"
+        android:layout_width="154dp"
+        android:layout_height="172dp"
+        app:srcCompat="@drawable/ic_menu_camera"
+        tools:layout_editor_absoluteX="6dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="Button"
+        tools:layout_editor_absoluteX="6dp"
+        tools:layout_editor_absoluteY="212dp" />
 </android.support.constraint.ConstraintLayout>

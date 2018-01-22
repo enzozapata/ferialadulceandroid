@@ -54,6 +54,10 @@
             android:name=".activity_post"
             android:label="@string/title_activity_main2"
             android:theme="@style/Theme.MyTheme.NoActionBar" />
+        <activity
+            android:name=".activity_new"
+            android:label="@string/title_activity_new"
+            android:theme="@style/Theme.MyTheme.NoActionBar" />
     </application>
 
 </manifest>
